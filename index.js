@@ -1,3 +1,8 @@
+// Variables to utilize in operating the calcuator
+let firstNum = '';
+let secondNum = '';
+let operator = '';
+
 /**
  * Function that sums two numbers 'a' and 'b' together
  * @param {int} a - the first number
@@ -36,4 +41,26 @@ function multiply(a, b) {
  */
 function divide(a, b) {
     return a / b;
+}
+
+/**
+ * Function that returns the result of the chosen arithmetic operation
+ * @param {int} firstNum - first number
+ * @param {int} secondNum - second number
+ * @param {string} operator - represents the arithmetic operation to perform
+ * @returns result of arithmetic operation performed
+ */
+function operate(firstNum, secondNum, operator) {
+    switch(operator) {
+        case '+':
+            return add(firstNum, secondNum);
+        case '-':
+            return substract(firstNum, secondNum);
+        case '*':
+            return multiply(firstNum, secondNum);
+        case '/':
+            return divide(firstNum, secondNum);
+        default:
+            return console.log("Error in operate function, invalid operate variable");            
+    }
 }
