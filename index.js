@@ -91,14 +91,19 @@ function populateDisplay(button) {
             return display.textContent += '00';
         case 'AC':
             return display.textContent = '';
+        case 'delete':
+            newText = display.textContent.slice(0, -1);
+            return display.textContent = newText;
     }
 }
 
 // Variables to utilize in operating the calcuator
 let firstNum = '';
 let secondNum = '';
-let displayVal = '';
 let operator = '';
+
+let displayVal = '';
+let processSecondNum = false;
 
 const buttons = document.querySelectorAll('button');
 
@@ -110,13 +115,14 @@ buttons.forEach(button => {
                 displayVal = '';
                 break;
             case 'percent':
-                console.log('you hit the percent key');
+                console.log('you hit the percent key, functionality not yet added.');
                 break;
             case 'divide':
                 console.log('you hit the divide key');
                 break;
             case 'delete':
-                console.log('you hit the delete key');
+                populateDisplay('delete');
+                displayVal.slice(0, -1);
                 break;
             case 'seven':
                 populateDisplay('7');
