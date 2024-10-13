@@ -87,6 +87,8 @@ function populateDisplay(button) {
             return display.textContent += '9';
         case '0':
             return display.textContent += '0';
+        case '.':
+            return display.textContent += '.';
         case 'AC':
             return display.textContent = '';
         case 'delete':
@@ -101,7 +103,7 @@ function populateDisplay(button) {
         case '/':
             return display.textContent += '÷'
         case 'calculate':
-            return display.textContent = operate(Math.round(firstNum), Math.round(displayVal), operator);
+            return display.textContent = parseFloat(operate(Math.round(Number(firstNum)), Math.round(Number(displayVal)), operator));
     }
 }
 
@@ -252,8 +254,9 @@ buttons.forEach(button => {
                 }
                 if (processSecondNum == false) {
                     operator = '+';
-                    firstNum = displayVal;
+                    firstNum = Number(displayVal);
                     displayVal = '';
+                    console.log('firstNum variable is currently: ' + firstNum);
                     processSecondNum = true;
                     populateDisplay('+');
                 }
@@ -269,6 +272,8 @@ buttons.forEach(button => {
                 if(solutionDisplayed) {
                     solutionDisplayedAndThenButtonClicked();
                 }
+                populateDisplay('.');
+                displayVal += '.';
                 console.log('you hit the decimal key');
                 break;
             case 'calculate':
