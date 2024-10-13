@@ -103,7 +103,7 @@ function populateDisplay(button) {
         case '/':
             return display.textContent += '÷'
         case 'calculate':
-            return display.textContent = parseFloat(operate(Math.round(Number(firstNum)), Math.round(Number(displayVal)), operator));
+            return display.textContent = operate(Number(firstNum), Number(displayVal), operator);
     }
 }
 
@@ -274,7 +274,6 @@ buttons.forEach(button => {
                 }
                 populateDisplay('.');
                 displayVal += '.';
-                console.log('you hit the decimal key');
                 break;
             case 'calculate':
                 populateDisplay('calculate');
