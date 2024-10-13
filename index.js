@@ -87,8 +87,6 @@ function populateDisplay(button) {
             return display.textContent += '9';
         case '0':
             return display.textContent += '0';
-        case '00':
-            return display.textContent += '00';
         case 'AC':
             return display.textContent = '';
         case 'delete':
@@ -142,12 +140,6 @@ buttons.forEach(button => {
             case 'clear':
                 populateDisplay('AC');
                 clearVars();
-                break;
-            case 'percent':
-                if(solutionDisplayed) {
-                    solutionDisplayedAndThenButtonClicked();
-                }
-                console.log('you hit the percent key, functionality not yet added.');
                 break;
             case 'divide':
                 if(solutionDisplayed) {
@@ -272,13 +264,6 @@ buttons.forEach(button => {
                 }
                 populateDisplay('0');
                 displayVal += '0';
-                break;
-            case 'double-zero':
-                if(solutionDisplayed) {
-                    solutionDisplayedAndThenButtonClicked();
-                }
-                populateDisplay('00');
-                displayVal += '00';
                 break;
             case 'decimal':
                 if(solutionDisplayed) {
